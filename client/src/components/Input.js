@@ -31,11 +31,6 @@ const InputForm = () => {
            )}
         </div>
 
-        
-
-        // <div>
-        //     {countryData.countries.countries}
-        // </div>
     )
 
 

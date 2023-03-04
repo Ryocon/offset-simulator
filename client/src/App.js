@@ -1,10 +1,15 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputForm from './components/Input';
+import Selector from './components/Selector';
 
 function App() {
   return (
-    <InputForm />
+    <div>
+      <Selector />
+      <InputForm />
+    </div>
+    
   )
 }
 
