@@ -6,31 +6,64 @@ app.use(express.urlencoded({ extended : true}));
 app.use(express.static('public'));
 // app.use(require('connect').bodyParser())
 
-let params = []
-console.log(params)
 // maths goes here
 // return variables for frontend to pull from
 
 // post route
 app.post('/api/calculator', (req, res) => {
-    testData = req.body.params.country
-    // req.body.country
-    // res.json(params)
-    // console.log(req.params)
-    console.log(req.body)
-    console.log(testData)
+    countryData = req.body.params.country
+    simulationData = req.body.params.simulationMode
     console.log('Calc route hit')
+    console.log(req.body)
+    console.log(simulationData)
+    console.log(countryData)
+    
+    let carbon = []
+
+    // switch(countryData, carbon) {
+    //     case 'Australia':
+    //         countryData === 'Australia'
+    //         console.log(countryData + ' in switch')
+    //         let carbon = 17.1
+    //         break
+    //     case 'China':
+    //         return countries[1].carbon
+            
+        
+    // }
+
+    if (countryData === 'Australia') {
+        carbon = 17.1
+    }
+
+    
+    console.log(carbon)
+
+
+    const unitConverter = (carbon) => {
+        // convert tonnes to kg
+        console.log(carbon * 1000 + ' times 1000')
+        console.log(carbon * 1000 / 12 + ' times 1000 divided by 12')
+        return carbon * 1000 / 12
+    }
+
+    unitConverter(carbon)
+
+    
+
+
+
+
+
+    returnData = 'hello'
+
+    return res.json(returnData)
+
     
 })
 
-// app.post('/api/calculator', (req, res) => {
-//     req.body = params
-//     console.log(params)
-//     console.log('Calc route hit')
 
-// })
-
-const offsetCalculator = (country) => {
+const offsetCalculator = (countryData) => {
 
     // dollars
     const tree = 120
@@ -48,22 +81,9 @@ const offsetCalculator = (country) => {
 }
 
 // switch statement?
-switch(params.country) {
-    case 'Australia':
-        return carbon = 17.1
-    case 'China':
-        return countries[1].carbon
-        
 
-}
 
-const unitConverter = (carbon) => {
-    // convert tonnes to kg
-    console.log(carbon * 1000)
-    console.log(carbon * 1000 / 12)
-    return carbon * 1000 / 12
-    
-}
+
 
 
 
