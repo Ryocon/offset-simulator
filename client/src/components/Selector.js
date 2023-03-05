@@ -11,38 +11,84 @@ const Selector = () => {
     console.log(formData);
     console.log(errors);
 
-    let params = {
-        country: formData.country,
-        simMode: formData.simulationMode
+    // let params = {
+    //     country: formData.country,
+    //     simMode: formData.simulationMode
+    // }
+
+    let params = formData
+    let countryParam = params.country
+
+    // let countryChoice = formData.country
+    
+    // const request = ( url, params, method ) => {
+    //     // All logic is here.
+    // };
+
+    // post data to server via get
+    // let sendData = async () => {
+    //     const result = await fetch(`/api/calculator`, {
+    //         method: "GET",
+    //     })
+    //     const returnData = await result.json()
+    //     console.log(returnData)
+    //     return returnData
+    // }
+
+    // const sendData = async () => {
+    //     const request = await fetch("/api/calculator", {
+    //      method: "POST",
+    //      body: JSON.stringify({
+    //        params
+    //      }),
+    //     });
+    //     const data = await request.json();
+    //     console.log(data); 
+    //    };
+
+    // sendData()
+    
+    const sendData = (params) => {
+        fetch('/api/calculator',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                params
+            })
+        })
+        .then( console.log(params.country, params.simulationMode))
+        .then(res => {
+                if (res.ok) {                    
+                    console.log('^ Sending Receiving V')
+                    return res.json()
+                } else {
+                    console.log('It not work')
+                }
+            })
+        .then(returnData => console.log(returnData))
+        .catch(error => console.log(error))
     }
-    
-    const request = ( url, params, method ) => {
-        // All logic is here.
-    };
-    
-    fetch('/api', params )
-    .then( console.log(params))
-    .then(
-        response => {
-            console.log(response)
-        }
-    )
+
+    sendData(params)
+   
 
   };
 
   // api fetch
-const [countryData, setCountryData] = useState([{}])
+// const [countryData, setCountryData] = useState([{}])
 
-useEffect(() => {
-    fetch("/api").then(
-        res => res.json()
-    ).then(
-        countryData => {
-        setCountryData(countryData)
-        console.log(countryData)
-        }
-    )
-}, [])
+// useEffect(() => {
+//     fetch("/api").then(
+//         res => res.json()
+//     ).then(
+//         countryData => {
+//         setCountryData(countryData)
+//         console.log(countryData)
+//         }
+//     )
+// }, [])
 
 
 

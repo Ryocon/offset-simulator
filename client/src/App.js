@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import InputForm from './components/Input';
 import Selector from './components/Selector';
-// import BootstrapTable from 'react-bootstrap-table-next';
+import TableOutput from "./components/Table";
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     <div>
       <Selector />
       {/* <InputForm /> */}
-      {/* <BootstrapTable /> */}
+      <TableOutput />
     </div>
     
   )
