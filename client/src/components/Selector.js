@@ -1,11 +1,62 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 
 const Selector = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  console.log(errors);
-  
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (formData) => {
+    console.log(formData);
+    console.log(errors);
+
+    let params = {
+        country: formData.country,
+        simMode: formData.simulationMode
+    }
+    
+    const request = ( url, params, method ) => {
+        // All logic is here.
+    };
+    
+    fetch('/api', params )
+    .then( console.log(params))
+    .then(
+        response => {
+            console.log(response)
+        }
+    )
+
+  };
+
+  // api fetch
+const [countryData, setCountryData] = useState([{}])
+
+useEffect(() => {
+    fetch("/api").then(
+        res => res.json()
+    ).then(
+        countryData => {
+        setCountryData(countryData)
+        console.log(countryData)
+        }
+    )
+}, [])
+
+
+
+  //   incremental logic
+  let state = {
+    count: 0,
+  };
+
+  // handleIncrement increments this.state.count by 1
+  let handleOffsetIncrement = () => {
+    // We always use the setState method to update a component's state
+    this.setState({ count: this.state.count + 1 });
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <select {...register("country")}>
@@ -18,7 +69,7 @@ const Selector = () => {
         <option value="United Kingdom">United Kingdom</option>
         <option value="United States">United States</option>
       </select>
-      <select {...register("simulation mode")}>
+      <select {...register("simulationMode")}>
         <option value="Monthly">Monthly</option>
         <option value="Yearly">Yearly</option>
       </select>
@@ -26,6 +77,6 @@ const Selector = () => {
       <input type="submit" />
     </form>
   );
-}
+};
 
 export default Selector

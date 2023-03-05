@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 
-
-
 const InputForm = () => {
 
     const [countryData, setCountryData] = useState([{}])

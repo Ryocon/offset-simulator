@@ -1,6 +1,37 @@
 const express = require('express')
 const app = express()
 
+// maths goes here
+// return variables for frontend to pull from
+
+const offsetCalculator = (country) => {
+
+    // dollars
+    const tree = 120
+    const treePerYear = 12
+    const treeLimit = 55
+    // number in kg
+    const offsetMax = 28.5
+    // times by 6 to reach max
+    const offsetOne = 4.75
+
+
+    // return converted number
+
+
+}
+
+// switch statement?
+
+const unitConverter = (carbon) => {
+    // convert tonnes to kg
+    console.log(carbon * 1000)
+    console.log(carbon * 1000 / 12)
+    return carbon * 1000 / 12
+    
+}
+
+
 
 app.get("/api", (req, res) => {
   res.json({
