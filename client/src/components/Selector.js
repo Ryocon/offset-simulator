@@ -17,7 +17,6 @@ const Selector = () => {
     // }
 
     let params = formData
-    let countryParam = params.country
 
     // let countryChoice = formData.country
     
@@ -68,6 +67,7 @@ const Selector = () => {
                 }
             })
         .then(returnData => console.log(returnData))
+        // .then(props.returnData)
         .catch(error => console.log(error))
     }
 
@@ -93,15 +93,15 @@ const Selector = () => {
 
 
   //   incremental logic
-  let state = {
-    count: 0,
-  };
+//   let state = {
+//     count: 0,
+//   };
 
-  // handleIncrement increments this.state.count by 1
-  let handleOffsetIncrement = () => {
-    // We always use the setState method to update a component's state
-    this.setState({ count: this.state.count + 1 });
-  };
+//   // handleIncrement increments this.state.count by 1
+//   let handleOffsetIncrement = () => {
+//     // We always use the setState method to update a component's state
+//     this.setState({ count: this.state.count + 1 });
+//   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

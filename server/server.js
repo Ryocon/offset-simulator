@@ -18,7 +18,7 @@ app.post('/api/calculator', (req, res) => {
     console.log(simulationData)
     console.log(countryData)
     
-    let carbon = []
+    let carbon = undefined
 
     // switch(countryData, carbon) {
     //     case 'Australia':
@@ -32,14 +32,6 @@ app.post('/api/calculator', (req, res) => {
         
     // }
 
-    if (countryData === 'Australia') {
-        carbon = 17.1
-    }
-
-    
-    console.log(carbon)
-
-
     const unitConverter = (carbon) => {
         // convert tonnes to kg
         console.log(carbon * 1000 + ' times 1000')
@@ -47,15 +39,22 @@ app.post('/api/calculator', (req, res) => {
         return carbon * 1000 / 12
     }
 
-    unitConverter(carbon)
+    if (countryData === 'Australia') {
+        carbon = 17.1
+        // unitConverter(carbon)
+        
+    } else if (countryData === 'China') {
+        carbon = 7.38
+        unitConverter(carbon)
+    }
 
+    console.log(carbon)
     
 
 
+    returnData = unitConverter(carbon)
+    console.log(returnData)
 
-
-
-    returnData = 'hello'
 
     return res.json(returnData)
 
