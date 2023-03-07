@@ -6,19 +6,6 @@ import TableOutput from "./components/Table";
 
 function App() {
 
-// // api fetch
-// const [countryData, setCountryData] = useState([{}])
-
-// useEffect(() => {
-//     fetch("/api").then(
-//         res => res.json()
-//     ).then(
-//         data => {
-//         setCountryData(data)
-//         console.log(data)
-//         }
-//     )
-// }, [])
 
 // set res as variables
 
