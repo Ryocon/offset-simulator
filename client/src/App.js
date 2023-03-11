@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
+import Tag from './components/Tag'
 
 
 function App() {
   //! Select country
   // sends post req to server which converts carbon amount to Kg and returns data
   let [carbonAmount, setCarbon] = useState(0);
+  let [selectedCountry, setCountry] = useState();
 
   // api call
   const  sendData = (params) => {
@@ -35,11 +37,15 @@ function App() {
 
     let params = formData;
 
+    setCountry(params.country)
+
     sendData(params);
   };
 
   //   DATA FOR STATE GOES HERE
   console.log(carbonAmount);
+  console.log(selectedCountry)
+
 
   // set res as variables
 
@@ -58,14 +64,18 @@ function App() {
         <option value="United Kingdom">United Kingdom</option>
         <option value="United States">United States</option>
       </select>
-      <select {...register("simulationMode")}>
+      {/* <select {...register("simulationMode")}>
         <option value="Monthly">Monthly</option>
         <option value="Yearly">Yearly</option>
-      </select>
+      </select> */}
 
       <input type="submit" />
     </form>
 
+      <Tag
+        country={selectedCountry}
+        carbon={carbonAmount}
+      />
 
 
     </div>
