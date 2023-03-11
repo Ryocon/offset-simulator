@@ -48,7 +48,7 @@ function App() {
   console.log(selectedCountry)
 
  const getInput = (formValues) => {
-  console.log(formValues[0].month, formValues[0].number)
+  formValues.forEach(inputArray => console.log(inputArray))
  }
 
 
