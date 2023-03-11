@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import Tag from './components/Tag'
+import TreeMonths from "./components/TreeMonths";
 
 
 function App() {
@@ -47,6 +48,11 @@ function App() {
   console.log(selectedCountry)
 
 
+
+  // !Input for trees and months
+  // DO A FRESH INPUT HERE WITHOUT HOOKS
+
+
   // set res as variables
 
   // empty states for data returned on form submits
@@ -76,6 +82,13 @@ function App() {
         country={selectedCountry}
         carbon={carbonAmount}
       />
+
+      <TreeMonths />
+
+
+      {/* <button onClick={<TreeMonths />}>
+    Add Month +
+    </button> */}
 
 
     </div>
