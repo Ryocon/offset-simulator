@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from 'react-hook-form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import axios from 'axios'
 
 
 function App() {
@@ -10,30 +10,16 @@ function App() {
   let [carbonAmount, setCarbon] = useState(0);
 
   // api call
-  const sendData = (params) => {
-    fetch("/api/calculator", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        params,
-      }),
+  const  sendData = (params) => {
+    axios.post('/api/calculator', {
+      params
     })
-      .then(console.log(params.country, params.simulationMode))
-      .then((res) => {
-        if (res.ok) {
-          console.log("^ Sending Receiving V");
-          return res.json();
-        } else {
-          console.log("It not work");
-        }
-      })
-      // .then(returnData => console.log(returnData))
-      .then((returnData) => setCarbon(returnData))
-      // .then(res => setCarbon(res.carbon))
-
-      .catch((error) => console.log(error));
+    .then(function (response) {
+      setCarbon(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
     setCarbon();
   };
@@ -46,11 +32,6 @@ function App() {
   const onSubmit = (formData) => {
     console.log(formData);
     console.log(errors);
-
-    // let params = {
-    //     country: formData.country,
-    //     simMode: formData.simulationMode
-    // }
 
     let params = formData;
 
