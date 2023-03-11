@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Table from 'react-bootstrap/Table';
-import Input from './Input'
-import Selector from "./Selector";
+import axios from 'axios'
 
 // to pull from api?
 let dataSet = (Input) => {
@@ -14,13 +13,55 @@ let selectorVariables = (Selector) => {
 
 }
 
+function fillTables() {
+
+ 
+
+}
+
 function TableOutput() {
+
+
+
+    // useEffect(() => {
+    //     apiCall()
+    // }, [])
+
+
+    // const [cells, setCell] = useState()
+
+    // const apiCall = () => {
+    //    axios
+    //     .get('/api')
+    //     .then((res) => {
+    //         setCell(res.data)
+    //         console.log(cells)
+    //     })
+    //     .catch((err) => console.error(err))
+    // }
+
+    // calls api
+    // apiCall()
+
   return (
     <Table striped bordered hover>
+        {/* {Object.cells?.map((countries) =>
+        <thead key={cells.countries.id}>
+            <tr>
+                <th>
+                    {cells.countries.name}
+                </th>
+                <th>
+                    {countries.carbon}
+                </th>
+            </tr>
+        </thead>
+        
+        )} */}
       <thead>
         <tr>
           <th>#</th>
-          <th>First Name</th>
+          <th>Mike</th>
           <th>Last Name</th>
           <th>Username</th>
         </tr>

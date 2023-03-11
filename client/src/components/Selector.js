@@ -3,8 +3,17 @@ import { useForm } from 'react-hook-form';
 
 function Selector () {
 
+    // useEffect(() => {
+
+    //     onSubmit()
+  
+
+    // },)
+
+
     let [carbonAmount, setCarbon] = useState(0)
-    // let [countryChoice, setCountry] = useState('None')
+    let [countryChoice, setCountry] = useState('')
+    
 
 // api call
 const sendData = (params) => {
@@ -27,6 +36,7 @@ const sendData = (params) => {
             }
         })
     // .then(returnData => console.log(returnData))
+    // setting state
     .then(returnData => setCarbon(returnData))
     // .then(res => setCarbon(res.carbon))
 
@@ -50,8 +60,9 @@ const sendData = (params) => {
     //     country: formData.country,
     //     simMode: formData.simulationMode
     // }
-
+    
     let params = formData
+    setCountry(params.country)
 
     sendData(params)
     
@@ -66,6 +77,7 @@ const sendData = (params) => {
 
 
   return (
+    <div>
     <form onSubmit={handleSubmit(onSubmit)}>
       <select {...register("country")}>
         <option value="Australia">Australia</option>
@@ -84,6 +96,12 @@ const sendData = (params) => {
 
       <input type="submit" />
     </form>
+
+    <p>
+        The average person in {countryChoice} produces {carbonAmount}kg's of CO2 per year
+    </p>
+
+    </div>
   );
 };
 
