@@ -9,14 +9,20 @@ const Tag = (props) => {
     // let carbon = props.carbon
 
     console.log(props)
+    
+
+    if (props.country === undefined) {
+        return <p>Select a country</p>
+    } else {
+        return (
+            <div>
+                The average person in {props.country} produces {props.carbon} kilograms of CO2 per year
+            </div>
+        )
+    }
 
 
-
-    return (
-        <div>
-            The average person in {props.country} produces {props.carbon} kilograms of CO2 per year
-        </div>
-    )
+    
 
 
     
