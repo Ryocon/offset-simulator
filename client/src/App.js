@@ -47,6 +47,9 @@ function App() {
   console.log(carbonAmount);
   console.log(selectedCountry)
 
+ const getInput = (formValues) => {
+  console.log(formValues[0].month, formValues[0].number)
+ }
 
 
   // !Input for trees and months
@@ -83,7 +86,10 @@ function App() {
         carbon={carbonAmount}
       />
 
-      <TreeMonths />
+      <TreeMonths 
+      onSubmit={getInput}
+      
+      />
 
 
       {/* <button onClick={<TreeMonths />}>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-function TreeMonths() {
+function TreeMonths(props) {
   const [formValues, setFormValues] = useState([{ month: "", number: "" }]);
 
   let handleChange = (i, e) => {
@@ -24,7 +24,7 @@ function TreeMonths() {
   let handleSubmit = (event) => {
     event.preventDefault();
     console.log(JSON.stringify(formValues), formValues[0].month, formValues[0].number)
-    return { formValues }
+    props.onSubmit(formValues)
   };
 
   // ! NOT CURRENTLY WORKING
