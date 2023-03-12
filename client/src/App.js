@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios'
 import Tag from './components/Tag'
 import TreeMonths from "./components/TreeMonths";
+import Graph from "./components/Graph";
 
 
 function App() {
@@ -47,18 +48,11 @@ function App() {
   console.log(carbonAmount);
   console.log(selectedCountry)
 
+
+// !Input data from tree number and months hoisted from child
  const getInput = (formValues) => {
   formValues.forEach(inputArray => console.log(inputArray))
  }
-
-
-  // !Input for trees and months
-  // DO A FRESH INPUT HERE WITHOUT HOOKS
-
-
-  // set res as variables
-
-  // empty states for data returned on form submits
 
   return (
     <div>
@@ -91,10 +85,9 @@ function App() {
       
       />
 
+      <Graph />
 
-      {/* <button onClick={<TreeMonths />}>
-    Add Month +
-    </button> */}
+
 
 
     </div>

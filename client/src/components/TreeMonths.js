@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState } from "react";
 
 function TreeMonths(props) {
-  const [formValues, setFormValues] = useState([{ month: "", number: "" }]);
+  const [formValues, setFormValues] = useState([{ year: "", number: "" }]);
 
   let handleChange = (i, e) => {
     let newFormValues = [...formValues];
@@ -11,8 +10,8 @@ function TreeMonths(props) {
   };
 
   let addFormFields = () => {
-    validate([...formValues, { month: "", number: "" }]);
-    setFormValues([...formValues, { month: "", number: "" }]);
+    validate([...formValues, { year: "", number: "" }]);
+    setFormValues([...formValues, { year: "", number: "" }]);
   };
 
   let removeFormFields = (i) => {
@@ -23,7 +22,7 @@ function TreeMonths(props) {
 
   let handleSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify(formValues), formValues[0].month, formValues[0].number)
+    console.log(JSON.stringify(formValues), formValues[0].year, formValues[0].number)
     props.onSubmit(formValues)
   };
 
@@ -44,23 +43,27 @@ function TreeMonths(props) {
     <form onSubmit={handleSubmit}>
       {formValues.map((element, index) => (
         <div className="form-inline" key={index}>
-          <label>Month</label>
+          <label>Year</label>
           <input
-            type="month"
-            name="month"
+            type="number"
+            name="year"
+            placeholder="YYYY"
+            min="2023"
+            max="2999"
             required={true}
-            value={element.month || ""}
+            value={element.year || ""}
             onChange={(e) => handleChange(index, e)}
           />
           <label>Tree Amount</label>
           <input
             type="number"
             name="number"
-            minLength={0}
-            maxLength={55}
+            min="1"
+            max="55"
             value={element.number || ""}
             onChange={(e) => handleChange(index, e)}
           />
+          {}
           {index ? (
             <button
               type="button"
