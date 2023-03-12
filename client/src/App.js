@@ -52,6 +52,14 @@ function App() {
 // !Input data from tree number and months hoisted from child
  const getInput = (formValues) => {
   formValues.forEach(inputArray => console.log(inputArray))
+  
+  // let trees = new Array()
+  // formValues.forEach(function(number, i){
+  //   number[i]=trees
+  // })
+
+  // console.log(trees)
+
  }
 
   return (

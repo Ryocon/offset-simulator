@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TreeMonths(props) {
-  const [formValues, setFormValues] = useState([{ year: "", number: "" }]);
+  const [formValues, setFormValues] = useState([{ year: "", number: 1 }]);
 
   let handleChange = (i, e) => {
     let newFormValues = [...formValues];
@@ -24,6 +24,12 @@ function TreeMonths(props) {
     event.preventDefault();
     console.log(JSON.stringify(formValues), formValues[0].year, formValues[0].number)
     props.onSubmit(formValues)
+    // if (parseInt(formValues.forEach.number)&& parseInt(formValues.forEach.year) > 55) {
+    //     alert('Nope')
+    // }
+
+    formValues.forEach((number) => console.log(number))
+
   };
 
   // ! NOT CURRENTLY WORKING
