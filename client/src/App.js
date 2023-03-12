@@ -12,6 +12,7 @@ function App() {
   // sends post req to server which converts carbon amount to Kg and returns data
   let [carbonAmount, setCarbon] = useState(0);
   let [selectedCountry, setCountry] = useState();
+  let [inputValues, setInputValues] = useState()
 
   // api call
   const  sendData = (params) => {
@@ -52,6 +53,8 @@ function App() {
 // !Input data from tree number and months hoisted from child
  const getInput = (formValues) => {
   formValues.forEach(inputArray => console.log(inputArray))
+  setInputValues(formValues)
+
   
   // let trees = new Array()
   // formValues.forEach(function(number, i){
@@ -93,7 +96,10 @@ function App() {
       
       />
 
-      <Graph />
+      <Graph 
+      data={inputValues}
+      carbon={carbonAmount}
+      />
 
 
 

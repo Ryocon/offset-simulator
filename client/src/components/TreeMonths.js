@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 function TreeMonths(props) {
-  const [formValues, setFormValues] = useState([{ year: "", number: 1 }]);
+  const [formValues, setFormValues] = useState([{ year: "", number: 0 }]);
 
   let handleChange = (i, e) => {
     let newFormValues = [...formValues];
@@ -10,8 +10,8 @@ function TreeMonths(props) {
   };
 
   let addFormFields = () => {
-    validate([...formValues, { year: "", number: "" }]);
-    setFormValues([...formValues, { year: "", number: "" }]);
+    validate([...formValues, { year: "", number: 0 }]);
+    setFormValues([...formValues, { year: "", number: 0 }]);
   };
 
   let removeFormFields = (i) => {
@@ -28,7 +28,7 @@ function TreeMonths(props) {
     //     alert('Nope')
     // }
 
-    formValues.forEach((number) => console.log(number))
+    formValues.forEach((lemon) => console.log(lemon))
 
   };
 
@@ -64,9 +64,10 @@ function TreeMonths(props) {
           <input
             type="number"
             name="number"
+            placeholder="1-55"
             min="1"
             max="55"
-            value={element.number || ""}
+            value={element.number || 0}
             onChange={(e) => handleChange(index, e)}
           />
           {}
