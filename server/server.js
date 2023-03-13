@@ -46,6 +46,16 @@ app.post('/api/calculator', (req, res) => {
 })
 
 
+app.post('/api/offset', (req, res) => {
+    // HEADERS ARE NOT CORRECT
+    trees = props.data.number
+    year = props.data.year
+    carbonInKg = props.carbon
+
+    console.log(trees, year, carbonInKg)
+
+})
+
 const offsetCalculator = (countryData) => {
 
     // dollars

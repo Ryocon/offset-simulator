@@ -26,7 +26,7 @@ function App() {
       console.log(error);
     });
 
-    setCarbon();
+    // setCarbon();
   };
 
   const {
